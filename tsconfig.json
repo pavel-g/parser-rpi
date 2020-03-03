@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"lib": ["es5", "es6", "DOM"],
+		"removeComments": true,
+		"experimentalDecorators": true,
+		"outDir": "dist",
+		"esModuleInterop": true,
+		"sourceMap": true
+	},
+	"exclude": [
+		"node_modules",
+		"static"
+	]
+}

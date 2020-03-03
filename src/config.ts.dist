@@ -1,0 +1,13 @@
+export const Config = {
+	port: 3000,
+	browser: '/usr/bin/chromium',
+	defaultViewport: {
+		width: 1920,
+		height: 1080
+	},
+	antiCaptcha: {
+		key: '...',
+		timeout: 10000,
+		countOfAttempts: 6
+	},
+}

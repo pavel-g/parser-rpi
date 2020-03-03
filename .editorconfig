@@ -1,0 +1,13 @@
+root = true
+
+[*.{js,json,ts}]
+indent_size = 4
+indent_style = tab
+
+[package.json]
+indent_style = space
+indent_size = 2
+
+[package-lock.json]
+indent_style = space
+indent_size = 2
