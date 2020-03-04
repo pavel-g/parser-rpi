@@ -35,10 +35,7 @@ export class Matricula {
 		const page: Page = await browser.getPage();
 		await page.waitForSelector(FIELD1_SELECTOR);
 		
-		// await page.type(FIELD1_SELECTOR, '');
-		
 		await page.focus(FIELD1_SELECTOR);
-		// await page.keyboard.press('Backspace');
 		await page.evaluate((selector) => {
 			document.querySelector(selector).value = "";
 		}, FIELD1_SELECTOR);
@@ -48,7 +45,6 @@ export class Matricula {
 		if (this.parts[2]) {
 			await page.type(FIELD3_SELECTOR, this.parts[2]);
 		}
-		await page.screenshot({path: 'after-fill-matricula.png'}); /* DEBUG */
 	}
 	
 }

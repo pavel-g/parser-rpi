@@ -13,14 +13,9 @@ export class CaptchaFiller {
 	
 	public async fillPage(): Promise<void> {
 		const page: Page = await this.browser.getPage();
-		// const url = await this.getImageUrl(CAPTCHA_SELECTOR);
-		// console.log('===> url', url); /* DEBUG */
-		// const img = await this.downloadImage(url);
 		const captchaElement = await page.$(CAPTCHA_SELECTOR);
-		const img = await captchaElement.screenshot({encoding: 'base64', path: 'captcha.png'});
-		console.log('===> img', img); /* DEBUG */
+		const img = await captchaElement.screenshot({encoding: 'base64'});
 		const text = await this.parseCaptcha(img);
-		console.log('===> text', text); /* DEBUG */
 		await page.type(CAPTCHA_VALUE_FIELD_SELECTOR, text);
 	}
 	
@@ -44,9 +39,7 @@ export class CaptchaFiller {
 				body: img,
 			},
 		};
-		console.log('===> send request to anti-captcha', taskReq); /* DEBUG */
 		const taskResp = await axios.post('https://api.anti-captcha.com/createTask', taskReq);
-		console.log('===> response from anti-captcha', taskResp); /* DEBUG */
 		if (taskResp.data.errorId !== 0) {
 			throw new Error('Не удалось передать задание на anti-captcha');
 		}

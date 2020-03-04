@@ -11,11 +11,9 @@ export async function auth(browser: BrowserWrapper): Promise<void> {
 	const page = await browser.getPage();
 	await page.goto(AUTH_URL);
 	await page.waitForSelector(LOGIN_SELECTOR);
-	await page.screenshot({path: 'before-login.png'}); /* DEBUG */
 	await page.focus(LOGIN_SELECTOR);
 	await page.keyboard.type(AUTH_LOGIN);
 	await page.focus(PASSWORD_SELECTOR);
 	await page.keyboard.type(AUTH_PASSWORD);
 	await page.click(LOGIN_BUTTON_SELECTOR);
-	await page.screenshot({path: 'after-login.png'}); /* DEBUG */
 }

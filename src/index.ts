@@ -20,7 +20,6 @@ app.get('/', (req: Request, res: Response) => {
 		destination: req.body.destination,
 		matricula: req.body.matricula
 	};
-	console.log('===> start'); /* DEBUG */
 	auth(browserWrapper)
 		.then(() => gotoIngresoMinutaElectronica(browserWrapper))
 		.then(() => fillInforme(browserWrapper, informeData))

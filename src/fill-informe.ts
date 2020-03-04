@@ -47,10 +47,12 @@ export async function fillInforme(browser: BrowserWrapper, params: InformeData) 
 	const solicitanteIdFieldSelectorValue = AUTH_LOGIN;
 	await page.select(SOLICITANTE_ID_FIELD_SELECTOR, solicitanteIdFieldSelectorValue);
 	
+	await page.screenshot({path: 'before-fill-captcha.png'});
+	
 	const captchaFiller = new CaptchaFiller(browser);
 	await captchaFiller.fillPage();
 	
-	await page.screenshot({path: 'after-fill-informe.png'}); /* DEBUG */
+	await page.screenshot({path: 'after-fill-captcha.png'});
 	
 	await page.click(SEND_BUTTON_SELECTOR);
 	

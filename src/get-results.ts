@@ -18,8 +18,6 @@ export async function getResults(browser: BrowserWrapper): Promise<ResultData> {
 	
 	const page: Page = await browser.getPage();
 	
-	await page.screenshot({path: 'before-send-final-result.png'});
-	
 	await page.waitForXPath(DOWNLOAD_BUTTON_XPATH);
 	
 	const pageUrl = page.url();
